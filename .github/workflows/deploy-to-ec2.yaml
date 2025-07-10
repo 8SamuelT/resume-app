@@ -22,6 +22,8 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.EC2_USER }}
           TARGET: ${{ secrets.TARGET_DIR }}
+          ARGS: "-rlgoDzvci --chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r --delete"
+          EXCLUDE: ".git/, .github/"
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
